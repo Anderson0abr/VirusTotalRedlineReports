@@ -51,7 +51,7 @@ def request_report():
     api_loop = cycle(api_keys)
 
     for line in hashes:
-        payload['apikey'] = next(api_loop)
+        payload['apikey'] = next(api_loop).rstrip()
         payload['resource'] = line
 
         try:
