@@ -99,8 +99,10 @@ def request_report():
             print("\nNo errors. Is this a miracle??")
             break
 
-    keep_going = input(f"{len(failed_hashes)} hashes failed 3 times."
-                       " Keep trying? (Y/n)") or "Y"
+    keep_going = "n"
+    if failed_hashes:
+        keep_going = input(f"{len(failed_hashes)} hashes failed 3 times."
+                           " Keep trying? (Y/n)") or "Y"
 
     if keep_going.lower() == "y":
         while failed_hashes:
